@@ -90,6 +90,10 @@ Quelques endroits pour effectuer sa recherche bibliographique :
 \FloatBarrier
 \subsection{Les travaux de recherche}
 
+L’essentiel de l’activité doctorale consiste en un travail de recherche novateur limité dans le temps (3 ans), encadré par un directeur de recherches doctorales, au sein d’une unité de recherche. Elle se conclut par la rédaction d’une thèse et par sa soutenance, c’est-à-dire une restitution synthétique des travaux scientifiques  effectués, validés par la communauté scientifique. \\
+
+Le travail de recherche doit être novateur, c’est-à-dire nouveau et entraînant une révision, une transformation de l’existant. Il est structuré par l’invention ou la construction de savoir-faire, de technologies, ou au sens large, d’outils – qu’ils soient conceptuels ou méthodologiques – innovants, et dont la conception a permis l’élaboration de nouvelles connaissances ou l’extension des capacités d’action. \\
+
 \textit{Quelques actions liées au travail de thèse :
 \begin{itemize}
 \item Réfléchir, développer une analyse critique et structurer ses pensées;
@@ -110,21 +114,67 @@ Source : \href{https://act.hypotheses.org/504}{Les aspects concrets de la thèse
 
 %--------------------------------------------------
 \FloatBarrier
-\subsection{La rédaction finale}
+\subsection{Soutenance et rédaction finale}
 
+\textit{La soutenance de thèse est l'épreuve universitaire concluant la thèse de doctorat. Il s'agit en général d'un examen oral prenant la forme d'une présentation effectuée par le candidat au titre de docteur durant laquelle il expose ses travaux de recherche devant un jury de spécialistes.} \\
+
+\textit{Le doctorant envoie en principe son mémoire de thèse aux membres du jury plusieurs semaines avant la soutenance, afin que ceux-ci aient le temps de le consulter, et le dépose officiellement auprès de son université trois semaines avant la soutenance1, en indiquant une date prévisionnelle de soutenance.} \\
+
+Source : \href{https://fr.wikipedia.org/wiki/Soutenance_de_th\%C3\%A8se}{Wikipedia}
 
 
 %--------------------------------------------------
 \FloatBarrier
 \subsection{Outils pour la bibliographie}
 
+L'utilisation d'un logiciel de gestion bibliographique est plus que recommandé dans le cadre de la thèse. Ces outils permettent généralement d'organiser sa bibliographie (en dossier par exemple), d'obtenir l'ensemble des informations nécessaires pour les citations dans les rapports scientifiques, d'exporter et d'intégrer aisément la bibliographie à un rapport\ldots Il existe différents logiciels, comme par exemple : \href{https://www.mendeley.com/}{Mendeley}, \href{https://www.zotero.org/}{Zotero},\ldots Un exemple de l'interface de Mendeley est visible Figure~\ref{figure_mendeley}.
+
+
+\begin{figure}[hbtp]
+	\centering
+	\def\svgwidth{1\columnwidth}
+	\fontsize{10pt}{10pt}\selectfont\input{Figures/mendeley.pdf_tex}
+	\caption{Interface de Mendeley}
+	\label{figure_mendeley}
+\end{figure}
 
 
 %--------------------------------------------------
 \FloatBarrier
 \subsection{Outils pour le tracé de figures}
 
+Il est courant pour les doctorants de devoir exploiter des résultats issus d'expérimentations (relevés de température, mesures de déplacement, corrélation d'images\ldots). \href{https://www.anaconda.com/download/}{Python} est un logiciel libre avec lequel il est possible d'exploiter divers résultats et de les afficher sous forme de Figure (\href{https://github.com/JeanCollomb/Python_plot}{Quelques exemples simples}). \\
 
+La Figure~\ref{figure_exemples_python} présente quelques exemples de Figures pouvant être générées à l'aide de Python : (i) courbe 3D Figure~\ref{figure_courbe_3D}; (ii) subplot Figure~\ref{figure_subplot}; (iii) diagramme polaire Figure~\ref{figure_polaire}.
+
+\begin{figure}[hbtp]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\def\svgwidth{\columnwidth}
+		\fontsize{10pt}{10pt}\selectfont\input{Figures/Figure_1.pdf_tex}
+		\caption{Exemple Courbe 3D} 
+		\label{figure_courbe_3D}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\def\svgwidth{\columnwidth}
+		\fontsize{10pt}{10pt}\selectfont\input{Figures/Figure_2.pdf_tex}
+		\caption{Exemple subplot} 
+		\label{figure_subplot}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\def\svgwidth{\columnwidth}
+		\fontsize{10pt}{10pt}\selectfont\input{Figures/Figure_3.pdf_tex}
+		\caption{Exemple diagramme polaire} 
+		\label{figure_polaire}
+	\end{subfigure}
+	\caption{Exemple de Figures générées sous Python} 
+	\label{figure_exemples_python}
+\end{figure}
 
 
 
@@ -322,7 +372,7 @@ Un exemple d'animation est présenté Figure.~\ref{Fig_animation}. Adobe reader 
 
 \begin{figure}[hbtp]
 \begin{center}
-\animategraphics[autoplay,
+\animategraphics[autoplay, loop,
 poster=first,
 height=13cm, 
 width=18cm ,
