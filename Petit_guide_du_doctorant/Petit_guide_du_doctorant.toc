@@ -1,0 +1,22 @@
+\babel@toc {french}{}
+\babel@toc {french}{}
+\contentsline {section}{\numberline {1.1}Personnes cl\IeC {\'e}s d'une th\IeC {\`e}se}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Moments cl\IeC {\'e}s d'une th\IeC {\`e}se}{3}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}La recherche bibliographique}{3}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Les travaux de recherche}{4}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}La r\IeC {\'e}daction finale}{4}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Outils pour la bibliographie}{4}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Outils pour le trac\IeC {\'e} de figures}{4}{subsection.1.2.5}
+\contentsline {section}{\numberline {1.3}L'organisation, une n\IeC {\'e}cessit\IeC {\'e}}{5}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Un projet sur 3 ans}{5}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}De multiples acteurs}{5}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}De nombreux livrables}{5}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Outils pour s'organiser}{5}{subsection.1.3.4}
+\contentsline {section}{\numberline {1.4}La r\IeC {\'e}daction... un passage oblig\IeC {\'e}}{6}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Point d'avancement}{6}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}R\IeC {\'e}daction scientifique}{6}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}\LaTeX , une alternative \IeC {\`a} Word}{7}{subsection.1.4.3}
+\contentsline {subsubsection}{\numberline {1.4.3.1}Qu'est ce que \LaTeX ?}{7}{subsubsection.1.4.3.1}
+\contentsline {subsubsection}{\numberline {1.4.3.2}Avantages et Inconv\IeC {\'e}nients}{7}{subsubsection.1.4.3.2}
+\contentsline {subsubsection}{\numberline {1.4.3.3}Comment r\IeC {\'e}diger sous \LaTeX }{8}{subsubsection.1.4.3.3}
+\contentsline {subsubsection}{\numberline {1.4.3.4}Quelques exemples de fonctions sous \LaTeX }{9}{subsubsection.1.4.3.4}
