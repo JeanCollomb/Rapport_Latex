@@ -1,0 +1,135 @@
+\documentclass[a4paper,12pt]{report}
+
+\include{Packages}
+\include{Format}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> PAGE DE GARDE INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Auteur}
+\newcommand{\validator}{J. COLLOMB}
+\title{Rapport d'avancement}
+\selectlanguage{french}	
+\date{\today}
+\newcommand{\thetitleobject}{Comment gérer sa bibliographie ?}
+\setcounter{tocdepth}{6}
+\setcounter{secnumdepth}{6}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> DEBUT DU DOCUMENT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\graphicspath{{Figures/}}
+
+\include{page_de_garde}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> SOMMAIRE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\contentsname{Sommaire}
+\setcounter{chapter}{1}
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> CORPS DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+\newpage
+
+\section{Bibliographie ?}
+\subsection{Pour quelle raison ?}
+\textit{Le travail de recherche et l'écriture d'un texte scientifique (rapport, article, thèse,…) exigent une recherche d'informations approfondie qui prend directement appui sur les travaux antérieurs. L'information choisie et exploitée permet de développer une réflexion personnelle et chaque document, retenu et analysé, contribue à la crédibilité scientifique du travail présenté. \\}
+
+\textit{Afin de faciliter la réflexion et le travail de recherche des lecteurs, qui à leur tour vont vouloir croiser leurs informations, il est indispensable de référencer correctement les travaux cités dans le texte en rédigeant une partie intitulée « Bibliographie » ou « Références bibliographiques ». \\}
+
+\textit{La bibliographie d'un document permet de connaître : (i)les travaux qui ont été utilisés pour le travail de recherche et la rédaction ; (ii) l’état de la littérature sur un sujet pendant une période déterminée ;(iii) les auteurs, titres de revue, sites web… spécialisés dans un domaine.} \\
+
+Source : \href{http://www.ajar-online.fr/thesememoire-2-recherche-bibliographique/}{AJAR Paris}    \\
+
+Quelques endroits pour effectuer sa recherche bibliographique :
+\begin{itemize}
+\item \href{https://scholar.google.fr/}{Google Scholar};
+\item \href{https://www-sciencedirect-com.camphrier-1.grenet.fr/}{Science Direct};
+\item \href{https://link-springer-com.camphrier-1.grenet.fr/}{Springer};
+\item \href{https://www-techniques-ingenieur-fr.camphrier-1.grenet.fr/}{Techniques de l'ingénieur}
+\item \href{https://hal.archives-ouvertes.fr/}{HAL}.
+\end{itemize}
+
+\ \\
+
+\begin{figure}[hbtp]
+	\centering
+	\def\svgwidth{1\columnwidth}
+	\fontsize{10pt}{10pt}\selectfont\input{Figures/image_bibliographie.pdf_tex}
+	\caption{Acquisition de connaissances}
+	\label{figure_bouquins}
+\end{figure}
+
+
+
+\subsection{Comment faire ?}
+L'utilisation d'un logiciel de gestion bibliographique est plus que recommandé dans le cadre de la thèse. Ces outils permettent généralement d'organiser sa bibliographie (en dossier par exemple), d'obtenir l'ensemble des informations nécessaires pour les citations dans les rapports scientifiques, d'exporter et d'intégrer aisément la bibliographie à un rapport\ldots \\
+
+Il existe différents logiciels, comme par exemple : 
+\begin{itemize}
+\item \href{https://www.mendeley.com/}{Mendeley}; 
+\item \href{https://www.zotero.org/}{Zotero};
+\item \ldots 
+\end{itemize}
+
+Un exemple de l'interface de Mendeley est visible Figure~\ref{figure_mendeley}.
+
+\begin{figure}[hbtp]
+	\centering
+	\def\svgwidth{1\columnwidth}
+	\fontsize{10pt}{10pt}\selectfont\input{Figures/mendeley.pdf_tex}
+	\caption{Interface de Mendeley}
+	\label{figure_mendeley}
+\end{figure}
+
+
+\subsection{Faire une citation sous \LaTeX}
+4 étapes sont nécessaires :
+\begin{enumerate}
+\item Exporter sa bibliographie au format \verb|.bib|;
+\item Effectuer les citations;
+\item Ajouter la bibliographie dans \LaTeX; 
+\item Compiler.
+\end{enumerate}
+
+Les citations sont réalisées à l'aide de la commande : \verb|\cite{clé_de_citation}|\footnote{clé de citation : information renseignée dans le logiciel de gestion de bibliographie}. \\ 
+
+L'ajout de la bibliographie s'effectue par les commandes : \verb|\bibliographystyle{ieeetr}| et \verb|\bibliography{nom_de_la_bibliographie_exportée}|. \\
+
+La compilation consiste à compiler en pdf puis bibtex puis pdf (x2). Cela est fait automatiquement par la compilation rapide de TexMaker.
+
+
+
+\section{Exemple}
+
+Voici un super exemple dans lequel je peux faire une première citation \cite{collomb2017}, puis une deuxième \cite{collomb2018} et enfin une multi-citation \cite{collomb2018a, collomb2017a}.
+
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+
+\bibliographystyle{ieeetr}
+\bibliography{bibliographie}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> FIN DU DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

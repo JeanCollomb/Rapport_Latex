@@ -1,0 +1,167 @@
+\documentclass[a4paper,12pt]{report}
+
+\include{Packages}
+\include{Format}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> PAGE DE GARDE INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Auteur}
+\newcommand{\validator}{J. COLLOMB}
+\title{Rapport d'avancement}
+\selectlanguage{french}	
+\date{\today}
+\newcommand{\thetitleobject}{Comment intégrer une animation ?}
+\setcounter{tocdepth}{6}
+\setcounter{secnumdepth}{6}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> DEBUT DU DOCUMENT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\graphicspath{{Figures/}}
+
+\include{page_de_garde}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> SOMMAIRE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\contentsname{Sommaire}
+\setcounter{chapter}{1}
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> CORPS DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+\newpage
+
+\section{Préparation amont}
+\subsection{Principe}
+Tout comme les films, une animation est générée par l'assemblage de plusieurs images à une cadence plus ou moins importante. Une animation fluide possède une fréquence de l'ordre de 25 images/seconde, mais pour certaines applications, des fréquences inférieures ou supérieures peuvent être requises.
+
+\subsection{Génération des images}
+Les images peuvent être générées de différentes manières :
+\begin{itemize}
+\item sous Python/Matlab\ldots;
+\item sous logiciel éléments finis;
+\item \ldots
+\end{itemize}
+
+Pour un bon fonctionnement sous \LaTeX, il est nécessaire de nommer les fichiers sous un format du type : \verb|nom_du_fichier_1.pdf| ; \verb|nom_du_fichier_2.pdf| ; \ldots
+
+\begin{figure}[hbtp]
+	\centering
+	\begin{subfigure}[b]{0.25\textwidth}
+		\centering
+		\includegraphics[scale=0.12]{Figures/animation/Figure_1.pdf}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\textwidth}
+		\centering
+		\includegraphics[scale=0.12]{Figures/animation/Figure_3.pdf}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\textwidth}
+		\centering
+		\includegraphics[scale=0.12]{Figures/animation/Figure_5.pdf}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\textwidth}
+		\centering
+		\includegraphics[scale=0.12]{Figures/animation/Figure_7.pdf}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\textwidth}
+		\centering
+		\includegraphics[scale=0.12]{Figures/animation/Figure_9.pdf}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\textwidth}
+		\centering
+		\includegraphics[scale=0.12]{Figures/animation/Figure_11.pdf}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\textwidth}
+		\centering
+		\includegraphics[scale=0.12]{Figures/animation/Figure_13.pdf}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.25\textwidth}
+		\centering
+		\includegraphics[scale=0.12]{Figures/animation/Figure_15.pdf}
+	\end{subfigure}
+	\caption{Exemple de figure générées} 
+	\label{figure_deux_logo_SYMME}
+\end{figure}
+
+
+\FloatBarrier
+%###########################################################################
+%###########################################################################
+
+\section{Code \LaTeX}
+\subsection{Préparation \LaTeX}
+La génération d'animation est possible grâce à l'utilisation du package "animate". Il faut donc ajouter en début de document : \verb|\usepackage{animate}|. Des informations complémentaires sont accessibles sur la \href{http://tug.ctan.org/macros/latex/contrib/animate/animate.pdf}{page de documentation} du package.\\
+
+Ci-dessous, un exemple de code \LaTeX pour la création d'une animation. \\
+
+
+\verb|\begin{figure}[hbtp]|  \\
+\verb|\begin{center}|  \\
+\verb|\animategraphics[|  \\
+\verb|autoplay, 		% Lecture automatique à l'affichage de la page |  	\\
+\verb|loop,				% Boucle de lecture de l'animation |  		\\
+\verb|poster=first, |  \\
+\verb|height=13cm, 		% Dimension de l'animation |  \\
+\verb|width=18cm ,		% Dimension de l'animation |  \\
+\verb|controls]{5}{/animation/Figure_}{1}{25} % Animation de l'image 1 à 25 avec 5i/s |  \\
+\verb|\caption{Exemple d'animation (Adobe reader 10 minimum requis)} |  \\
+\verb|\label{Fig_animation} |  \\
+\verb|\end{center} |   \\
+\verb|\end{figure}|  \\
+
+
+\subsection{Avertissement}
+Pour le bon fonctionnement de l'animation sur le document pdf final, il est nécessaire de posséder Adobe reader X au minimum. \\
+
+L'impression papier quant à elle est censé faire figuer l'image déterminée par la commande "poster".
+
+\subsection{Exemple d'animation}
+
+Un exemple d'animation est présenté Figure.~\ref{Fig_animation}. \\
+
+Cette animation représente la chauffe d'une structure 2D après l'exécution d'un calcul éléments finis sur le logiciel Ansys. \\
+
+
+\begin{figure}[hbtp]
+\begin{center}
+\animategraphics[
+autoplay, 
+loop,
+poster=first,
+height=13cm, 
+width=18cm ,
+controls]{5}{/animation/Figure_}{1}{25}
+\caption{Exemple d'animation (Adobe reader 10 minimum requis)} 
+\label{Fig_animation} 
+\end{center}  
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> FIN DU DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

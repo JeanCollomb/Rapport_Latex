@@ -1,0 +1,122 @@
+\documentclass[a4paper,12pt]{report}
+
+\include{Packages}
+\include{Format}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> PAGE DE GARDE INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Auteur}
+\newcommand{\validator}{J. COLLOMB}
+\title{Rapport d'avancement}
+\selectlanguage{french}	
+\date{\today}
+\newcommand{\thetitleobject}{Comment faire des tableaux simplement ?}
+\setcounter{tocdepth}{6}
+\setcounter{secnumdepth}{6}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> DEBUT DU DOCUMENT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\graphicspath{{Figures/}}
+
+\include{page_de_garde}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> SOMMAIRE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\contentsname{Sommaire}
+\setcounter{chapter}{1}
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> CORPS DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+\newpage
+
+\section{Faire des tableaux}
+\subsection{Assistants des logiciels}
+Certains traitements de texte, comme par exemple Texmaker, possèdent des assistants pour la génération des tableaux. La Figure~\ref{figure_assistant_tableau} est un exemple d'assistant. \\
+
+Ces assistants permettent de créer de manière graphique le tableau, puis de générer de manière automatique le code \LaTeX associé. \\
+
+Cependant, il est généralement nécessaire avec ces outils de devoir ajouter des "bouts de codes" pour personnaliser son tableau (allignement du texte, taille de cellule\ldots) et il est également difficile avec ces outils d'intégrer des cellules fusionnées.
+
+\begin{figure}[hbtp]
+	\centering
+	\def\svgwidth{0.9\columnwidth}
+	\fontsize{10pt}{10pt}\selectfont\input{Figures/assistant_tableau.pdf_tex}
+	\caption{Assistant Texmaker}
+	\label{figure_assistant_tableau}
+\end{figure}
+
+\subsection{Générateurs en ligne}
+Des outils en ligne existent et possèdent des fonctionnalités similaires, et parfois plus développées, comme par exemple ce \href{http://www.tablesgenerator.com/latex_tables}{Générateur de tableau}. La Figure~\ref{figure_generateur_tableau} présente l'interface de cet outil en ligne. \\
+
+\begin{figure}[hbtp]
+	\centering
+	\def\svgwidth{1\columnwidth}
+	\fontsize{10pt}{10pt}\selectfont\input{Figures/generateur.pdf_tex}
+	\caption{Générateur en ligne}
+	\label{figure_generateur_tableau}
+\end{figure}
+
+Cet outil en ligne permet par exemple de :
+\begin{itemize}
+\item Copier/Coller des tableaux Excel/Word et de générer le code associé;
+\item Générer son propre tableau;
+\item Gérer la fusion des cellules;
+\item Gérer les alignements;
+\item Gérer les bordures;
+\item \ldots
+\end{itemize}
+
+
+\section{Exemples}
+
+Un exemple de tableau simple (Tableau~\ref{tableau_simple}) et un exemple de tableau complexe (Tableau~\ref{tableau_complexe}).
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+A & B & C \\ \hline
+1 & 2 & 3 \\ \hline
+4 & 5 & 6 \\ \hline
+\end{tabular}
+\caption{Tableau simple}
+\label{tableau_simple}
+\end{table}
+
+
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{}} & \multicolumn{3}{c|}{E} \\ \cline{3-5} 
+\multicolumn{2}{|c|}{}                  & a      & b     & c     \\ \hline
+\multirow{3}{*}{F}          & t         & 1      & 2     & 3     \\ \cline{2-5} 
+                            & u         & 4      & 5     & 6     \\ \cline{2-5} 
+                            & v         & 7      & 8     & 9     \\ \hline
+\end{tabular}
+\caption{Tableau complexe avec cellules fusionnées}
+\label{tableau_complexe}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> FIN DU DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

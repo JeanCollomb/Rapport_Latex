@@ -1,0 +1,191 @@
+\documentclass[a4paper,12pt]{report}
+
+\include{Packages}
+\include{Format}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> PAGE DE GARDE INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Auteur}
+\newcommand{\validator}{J. COLLOMB}
+\title{Rapport d'avancement}
+\selectlanguage{french}	
+\date{\today}
+\newcommand{\thetitleobject}{Comment intégrer des figures ?}
+\setcounter{tocdepth}{6}
+\setcounter{secnumdepth}{6}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> DEBUT DU DOCUMENT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\graphicspath{{Figures/}}
+
+\include{page_de_garde}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> SOMMAIRE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\contentsname{Sommaire}
+\setcounter{chapter}{1}
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> CORPS DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+\newpage
+
+\section{Vous avez dit figures ?}
+\subsection{Image matricielle et image vectorielle}
+
+\textit{\textbf{Une image matricielle}, ou « carte de points » (de l'anglais bitmap), est une image constituée d'une matrice de points colorés. C'est-à-dire, constituée d'un tableau, d'une grille, où chaque case possède une couleur qui lui est propre et est considérée comme un point. Il s'agit donc d'une juxtaposition de points de couleurs formant, dans leur ensemble, une image.} \\
+Source : \href{https://fr.wikipedia.org/wiki/Image_matricielle}{Wikipédia - Image matricielle} \\
+
+\textit{\textbf{Une image vectorielle} (ou image en mode trait), en informatique, est une image numérique composée d'objets géométriques individuels, des primitives géométriques (segments de droite, arcs de cercle, courbes de Bézier, polygones, etc.), définis chacun par différents attributs (forme, position, couleur, remplissage, visibilité, etc.) et auxquels on peut appliquer différentes transformations (homothéties, rotations, écrasement, mise à l'échelle, extrusion, inclinaison, effet miroir, dégradé de formes, morphage, symétrie, translation, interpolation, coniques ou bien les formes de révolution).}\\
+Source : \href{https://fr.wikipedia.org/wiki/Image_vectorielle}{Wikipédia - Image vectorielle}
+
+
+\subsection{Comment créer ses figures ?}
+Il est courant pour les doctorants de devoir exploiter des résultats issus d'expérimentations :
+\begin{itemize}
+\item relevés de température;
+\item mesures de déplacement;
+\item corrélation d'images;
+\item relevé GPS;
+\item \ldots
+\end{itemize}
+
+\ \\
+
+Le traitement des résultats peut s'effectuer par divers logiciels :
+\begin{itemize}
+\item Excel;
+\item Matlab;
+\item Python;
+\item Orange;
+\item \ldots
+\end{itemize}
+
+\ \\
+
+\href{https://www.anaconda.com/download/}{Python} est un logiciel de programmation libre avec lequel il est possible d'exploiter divers résultats, d'automatiser des actions répétitives et d'afficher les données sous forme de Figure (\href{https://github.com/JeanCollomb/Python_plot}{Quelques exemples simples}). \\
+
+Python permet l'export d'images matricielles (\verb|.jpg, .png|), mais également d'images vectorielles (\verb|.svg, .eps|).
+
+
+\subsection{Créer des images sous Powerpoint}
+Powerpoint est un outil simple et efficace pour la création de figures (algorithmes, annotation de courbes, \ldots). \\
+
+Powerpoint permet l'export des figures ainsi générées au format \verb|.emf| (\href{http://saf.bio.caltech.edu/PPT_G_P_I/}{démarche}). Ces images peuvent par la suite être ouvertes par des logiciels libres tel que \href{https://inkscape.org/fr/}{Inkscape} puis exportée dans un format d'image vectorielle ou mieux, au format \verb|.pdf_tex|. Ce format permet d'encapsuler les images dans un pdf et de générer les annotations, géométries à l'aide d'un fichier Tex modifiable. \\
+
+\underline{\textbf{Suggestion :}} \\
+Pour les toutes les figures :
+\begin{enumerate}
+\item Préférer la génération d'images vectorielles (\verb|.eps|, \verb|.svg|);
+\item (Option) Ajouter des compléments via Powerpoint et exporter au format \verb|.emf|;
+\item Convertir les images en fichiers \verb|.pdf_tex| à l'aide du logiciel \href{https://inkscape.org/fr/}{Inkscape};
+\item Intégrer uniquement des images \verb|.pdf_tex| dans le document \LaTeX (minimiser les formats différents pour les images permet de minimiser les sources d'erreurs).
+\end{enumerate}
+
+
+
+\section{Intégrer des figures sous \LaTeX}
+\subsection{Figure simple}
+Pour l'intégration des sous-figures, il est nécessaire de placer en début de document le package subcaption (le package subfig étant obsolète désormais). \\
+La commande est donc : \verb|\usepackage{subcaption}|.
+
+\subsection{Figure simple}
+Le code \LaTeX permettant l'ajout d'une figure simple au format \verb|.pdf_tex| est le suivant : \\
+
+\verb|\begin{figure}[hbtp]	| \\
+\verb|	\centering 	% Figure centrée| \\
+\verb|	\def\svgwidth{0.8\columnwidth} % Figure faisant 80% de la largeur de page | \\
+\verb|	\fontsize{10pt}{10pt}\selectfont\input{Figures/Figure_1.pdf_tex} | \\
+\verb|	\caption{Exemple de figure simple} | \\
+\verb|	\label{figure_simple} | \\
+\verb|\end{figure} | \\
+
+\subsection{Sous-figures}
+Le code \LaTeX permettant l'ajout d'une figure multiple au format \verb|.pdf_tex| est le suivant : \\
+
+\verb|\begin{figure}[hbtp]| \\
+\verb|	\centering| \\
+\verb|	\begin{subfigure}[b]{0.8\textwidth}| \\
+\verb|		\centering| \\
+\verb|		\def\svgwidth{\columnwidth}| \\
+\verb|		\fontsize{10pt}{10pt}\selectfont\input{Figures/Figure_2.pdf_tex}| \\
+\verb|		\caption{Exemple subplot} | \\
+\verb|		\label{figure_subplot}| \\
+\verb|	\end{subfigure}| \\
+\verb|	\qquad| \\
+\verb|	\begin{subfigure}[b]{0.7\textwidth}| \\
+\verb|		\centering| \\
+\verb|		\def\svgwidth{\columnwidth}| \\
+\verb|		\fontsize{10pt}{10pt}\selectfont\input{Figures/Figure_3.pdf_tex}| \\
+\verb|		\caption{Exemple diagramme polaire} | \\
+\verb|		\label{figure_polaire}| \\
+\verb|	\end{subfigure}| \\
+\verb|	\caption{Exemple de Figures multiple}| \\
+\verb|	\label{figure_multiple}| \\
+\verb|\end{figure}| \\
+
+
+
+\newpage
+\section{Exemples}
+La Figure~\ref{figure_simple} est un exemple d'intégration d'une figure simple. \\
+Les images sont au format vectoriel. Ça donne quoi un zoom dessus ?
+
+\begin{figure}[hbtp]
+	\centering
+	\def\svgwidth{1\columnwidth}
+	\fontsize{10pt}{10pt}\selectfont\input{Figures/Figure_1.pdf_tex}
+	\caption{Exemple de figure simple}
+	\label{figure_simple}
+\end{figure}
+
+
+
+La Figure~\ref{figure_multiple} est un exemple d'intégration d'une figure multiple. \\
+Il est bien entendu possible de faire référence à la Figure~\ref{figure_subplot} ou à la Figure~\ref{figure_polaire}.
+
+\begin{figure}[hbtp]
+	\centering
+	\begin{subfigure}[b]{0.8\textwidth}
+		\centering
+		\def\svgwidth{\columnwidth}
+		\fontsize{10pt}{10pt}\selectfont\input{Figures/Figure_2.pdf_tex}
+		\caption{Exemple subplot} 
+		\label{figure_subplot}
+	\end{subfigure}
+	\qquad
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\def\svgwidth{\columnwidth}
+		\fontsize{10pt}{10pt}\selectfont\input{Figures/Figure_3.pdf_tex}
+		\caption{Exemple diagramme polaire} 
+		\label{figure_polaire}
+	\end{subfigure}
+	\caption{Exemple de Figures multiple} 
+	\label{figure_multiple}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> FIN DU DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

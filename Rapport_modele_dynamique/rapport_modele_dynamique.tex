@@ -1,0 +1,127 @@
+\documentclass[a4paper,12pt]{report}
+
+\include{Packages}
+\include{Format}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> PAGE DE GARDE INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Auteur}
+\newcommand{\validator}{J. COLLOMB}
+\title{Rapport d'avancement}
+\selectlanguage{french}	
+\date{\today}
+\newcommand{\thetitleobject}{Comment intégrer des modèles 3D ?}
+\setcounter{tocdepth}{6}
+\setcounter{secnumdepth}{6}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> DEBUT DU DOCUMENT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\graphicspath{{Figures/}}
+
+\include{page_de_garde}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> SOMMAIRE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\contentsname{Sommaire}
+\setcounter{chapter}{1}
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> CORPS DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+\newpage
+
+\section{Générer un modèle 3D}
+\subsection{Package et formats requis}
+Le package utilisé pour l'intégration d'un modèle 3D est : media9. \\
+La commande à placer en début de document est donc : \verb|\usepackage{media9}| \\
+
+Le package media9 permet l'intégration des fichiers \verb|.u3d| et \verb|.prc|. \\
+Il est donc nécessaire de générer un modèle 3D à ce format. \\
+
+Des logiciels ne permettent l'export à ce format (ex : SolidWorks), il est donc nécessaire de mettre en place des étapes intermédiaires. Une proposition de démarche est présentée ci-après.
+
+\subsection{Suggestion de démarche}
+
+La démarche proposée repose sur 4 étapes :
+\begin{enumerate}
+\item Générer le modèle 3D;
+\item Exporter dans un format d'échange : \verb|.stl| par exemple;
+\item Convertir ce fichier au format \verb|.u3d| à l'aide d'un logiciel externe, \href{http://www.meshlab.net/}{Meshlab} par exemple;
+\item Intégrer ce fichier dans \LaTeX.
+\end{enumerate}
+
+\subsection{Code \LaTeX}
+Un exemple de code est présenté ci-après. Pour plus de détails, voici la \href{http://texdoc.net/texmf-dist/doc/latex/media9/media9.pdf}{documentation} du package avec des exemples. \\
+
+\verb|% Intégration du modèle| \\
+\verb|\begin{figure}[hbtp] | \\
+\verb|\begin{center} | \\
+\verb|\includemedia[ | \\
+\verb|label=figure_modele, | \\
+\verb|width=0.85\linewidth,height=0.85\linewidth, | \\
+\verb|activate=pagevisible, | \\
+\verb|3Dpartsattrs=keep, | \\
+\verb|3Dnavpane, | \\
+\verb|3Dviews={Figures/dynamique/modele.vues} | \\
+\verb|]{\includegraphics{modele.pdf}}{/dynamique/modele.u3d} | \\
+
+\verb|% Création des boutons cliquables| \\
+\verb|\mediabutton[3Dgotoview=figure_modele:0]{\fbox{Vue par défaut}} | \\
+\verb|\mediabutton[3Dgotoview=figure_modele:1]{\fbox{Vue de face}} | \\
+\verb|\mediabutton[3Dgotoview=figure_modele:2]{\fbox{Vue du maillage}} | \\
+\verb|\mediabutton[3Dgotoview=figure_modele:3]{\fbox{Vue en transparence}} | \\
+
+\verb|\end{center}   | \\
+\verb|\caption{Exemple de vues dynamiques | \\
+\verb|\label{figure_modele_dynamique}}  | \\
+\verb|\end{figure} | \\
+
+
+\section{Exemple}
+Un exemple de vue dynamique / interactive est présenté Figure.~\ref{figure_modele_dynamique}. Pour son bon fonctionnement, il est nécessaire d'activer les formulaires et cliquez sur l'image si nécessaire pour charger la visualisation; les zooms et translations sur le modèle sont disponibles.
+
+\begin{figure}[hbtp]
+\begin{center}
+\includemedia[
+label=figure_modele,
+width=0.85\linewidth,height=0.85\linewidth,
+activate=pagevisible,
+3Dpartsattrs=keep,
+3Dnavpane,
+3Dviews={Figures/dynamique/modele.vues}
+]{\includegraphics{modele.pdf}}{/dynamique/modele.u3d}
+
+\mediabutton[3Dgotoview=figure_modele:0]{\fbox{Vue par défaut}}
+\mediabutton[3Dgotoview=figure_modele:1]{\fbox{Vue de face}}
+\mediabutton[3Dgotoview=figure_modele:2]{\fbox{Vue du maillage}}
+\mediabutton[3Dgotoview=figure_modele:3]{\fbox{Vue en transparence}}
+
+\end{center}  
+\caption{Exemple de vues dynamiques
+\label{figure_modele_dynamique}} 
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> FIN DU DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
