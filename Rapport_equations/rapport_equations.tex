@@ -1,0 +1,157 @@
+\documentclass[a4paper,12pt]{report}
+
+\include{Packages}
+\include{Format}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> PAGE DE GARDE INFO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Auteur}
+\newcommand{\validator}{J. COLLOMB}
+\title{Rapport d'avancement}
+\selectlanguage{french}	
+\date{\today}
+\newcommand{\thetitleobject}{Comment insérer des équations ?}
+\setcounter{tocdepth}{6}
+\setcounter{secnumdepth}{6}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> DEBUT DU DOCUMENT 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\graphicspath{{Figures/}}
+
+\include{page_de_garde}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> SOMMAIRE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand\contentsname{Sommaire}
+\setcounter{chapter}{1}
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> CORPS DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+\newpage
+
+\section{Équations en ligne}
+Sous \LaTeX, il est possible d'intégrer des équations en ligne, c'est à dire dans le texte. Ces équations ne sont pas numérotés. Pour exemple, voici une équation en ligne : $a \times b~=~a.b$. \\
+
+Pour intégrer une équation en ligne, la commande \LaTeX est : \verb|$ équation $|. \\
+
+Cette commande permet d'intégrer :
+\begin{itemize}
+\item des équations \verb|$ a \times b = a.b $| $ \longrightarrow a \times b = a.b$;
+\item des symboles \verb|$ \Delta $, $ \epsilon $, $ \phi $| $ \longrightarrow  \Delta $, $ \epsilon $, $ \phi $;
+\item des indices \verb|$ \Delta T_{maximal} $| $ \longrightarrow  \Delta T_{maximal} $;
+\item des exposants \verb|$ \Delta T^{maximal} $| $ \longrightarrow  \Delta T^{maximal} $;
+\item des fractions \verb|$ \frac{a}{b} $| $ \longrightarrow  \frac{a}{b} $; 
+\item des racines carrées \verb|$ \sqrt{abc} $| $ \longrightarrow  \sqrt{abc} $; 
+\item des racines $n^{ième}$ \verb|$ \sqrt[n]{abc} $| $ \longrightarrow  \sqrt[n]{abc} $; 
+\item \ldots
+\end{itemize}
+
+
+\section{Équations hors ligne}
+Il est également possible d'intégrer des équations hors-ligne, c'est-à-dire séparées du texte. Ces équations sont numérotés. Les équations~\ref{eq_densite_flux_conduction} et \ref{eq_equatio_chaleur} sont des équations hors-ligne. \\
+
+Pour intégrer une équation hors-ligne, la commande \LaTeX est : \\
+\verb|\begin{equation}| \\
+\verb|\overrightarrow{\varphi_{conductif}} = -\lambda(T) \times \overrightarrow{grad(T)}| \\
+\verb|\label{eq_densite_flux_conduction}| \\
+\verb|\end{equation}|
+
+\begin{equation}
+\overrightarrow{\varphi_{conductif}} = -\lambda(T) \times \overrightarrow{grad(T)}
+\label{eq_densite_flux_conduction}
+\end{equation}
+
+\verb|\begin{equation}| \\
+\verb|\rho (T) \times c_{p} (T) \times \frac{\partial T}{\partial t} = | \\
+\verb|\frac{\partial }{\partial x} \times (\lambda (T) \times | \\
+\verb|\frac{\partial T}{\partial x}) + \frac{\partial }{\partial y} \times | \\
+\verb|(\lambda (T) \times \frac{\partial T}{\partial y}) + | \\
+\verb|\frac{\partial }{\partial z} \times (\lambda (T) \times | \\
+\verb|\frac{\partial T}{\partial z}) + \dot{E}_{generee}| \\
+\verb|\label{eq_equatio_chaleur}| \\
+\verb|\end{equation}|
+
+\begin{equation}
+\rho (T) \times c_{p} (T) \times \frac{\partial T}{\partial t} = \frac{\partial }{\partial x} \times (\lambda (T) \times \frac{\partial T}{\partial x}) + \frac{\partial }{\partial y} \times (\lambda (T) \times \frac{\partial T}{\partial y}) + \frac{\partial }{\partial z} \times (\lambda (T) \times \frac{\partial T}{\partial z}) + \dot{E}_{generee}
+\label{eq_equatio_chaleur}
+\end{equation}
+
+
+
+\section{Sous équations}
+\LaTeX permet également la création de sous-équations. Ces équations sont numérotés. Les équations~\ref{eq_equation_singularite_A1} à \ref{eq_equation_singularite_A3}. \\
+
+Pour intégrer des sous-équations, la commande \LaTeX est : \\
+\verb|\begin{subequations}| \\
+\verb|\begin{align}| \\
+\verb|A &= 0,9 \times  \sin (\delta)  & & \text{ pour } {\delta \leq 70^{\circ}}| \\
+\verb|\label{eq_equation_singularite_A1}| \\
+\verb|\\| \\
+\verb|A &= 1 & & \text{ pour } {\delta = 90^{\circ}}| \\
+\verb|\label{eq_equation_singularite_A2}| \\
+\verb|\\| \\
+\verb|A &= 0,7 + 0,35 \times  \frac{\delta}{90} & & \text{ pour } {\delta \geq 90^{\circ}}| \\
+\verb|\label{eq_equation_singularite_A3}| \\
+\verb|\end{align}| \\
+\verb|\end{subequations} | \\
+
+\begin{subequations}
+\begin{align}
+A &= 0,9 \times  \sin (\delta)  & & \text{ pour } {\delta \leq 70^{\circ}}
+\label{eq_equation_singularite_A1}
+\\
+A &= 1 & & \text{ pour } {\delta = 90^{\circ}}
+\label{eq_equation_singularite_A2}
+\\
+A &= 0,7 + 0,35 \times  \frac{\delta}{90} & & \text{ pour } {\delta \geq 90^{\circ}}
+\label{eq_equation_singularite_A3}
+\end{align}
+\end{subequations} 
+
+
+
+\section{Matrices}
+Il est possible sous \LaTeX d'intégrer des matrices. Par exemple, équation~\ref{matrice} et \ref{matrice2}.
+
+\begin{equation}
+\begin{bmatrix}
+a & b & c \\ 
+d & e & f \\ 
+g & h & i
+\end{bmatrix} 
+\label{matrice}
+\end{equation}
+
+\begin{equation}
+\begin{pmatrix}
+1 & 2 \\ 
+3 & 4
+\end{pmatrix}
+\label{matrice2}
+\end{equation}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%-------------> FIN DU DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
